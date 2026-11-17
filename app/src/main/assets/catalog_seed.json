@@ -1,0 +1,2690 @@
+{
+  "categories": [
+    {
+      "name": "Obst",
+      "sortOrder": 0
+    },
+    {
+      "name": "Gemüse & Kräuter",
+      "sortOrder": 1
+    },
+    {
+      "name": "Backwaren & Brot",
+      "sortOrder": 2
+    },
+    {
+      "name": "Milchprodukte & Eier",
+      "sortOrder": 3
+    },
+    {
+      "name": "Käse & Aufschnitt",
+      "sortOrder": 4
+    },
+    {
+      "name": "Fleisch & Wurst",
+      "sortOrder": 5
+    },
+    {
+      "name": "Fisch & Meeresfrüchte",
+      "sortOrder": 6
+    },
+    {
+      "name": "Vegane & Vegetarische Alternativen",
+      "sortOrder": 7
+    },
+    {
+      "name": "Tiefkühlkost",
+      "sortOrder": 8
+    },
+    {
+      "name": "Grundnahrungsmittel & Trockenwaren",
+      "sortOrder": 9
+    },
+    {
+      "name": "Konserven & Gläser",
+      "sortOrder": 10
+    },
+    {
+      "name": "Öle, Essig, Soßen & Gewürze",
+      "sortOrder": 11
+    },
+    {
+      "name": "Aufstriche, Honig & Marmelade",
+      "sortOrder": 12
+    },
+    {
+      "name": "Kaffee, Tee & Kakao",
+      "sortOrder": 13
+    },
+    {
+      "name": "Getränke",
+      "sortOrder": 14
+    },
+    {
+      "name": "Süßigkeiten & Snacks",
+      "sortOrder": 15
+    },
+    {
+      "name": "Drogerie & Körperpflege",
+      "sortOrder": 16
+    },
+    {
+      "name": "Haushalt & Reinigung",
+      "sortOrder": 17
+    },
+    {
+      "name": "Papierwaren & Folien",
+      "sortOrder": 18
+    },
+    {
+      "name": "Tierbedarf",
+      "sortOrder": 19
+    },
+    {
+      "name": "Sonstiges",
+      "sortOrder": 20
+    }
+  ],
+  "products": [
+    {
+      "name": "Apfel",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Banane",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Birne",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Orange",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Mandarine",
+      "category": "Obst",
+      "defaultUnit": "Netz"
+    },
+    {
+      "name": "Clementine",
+      "category": "Obst",
+      "defaultUnit": "Netz"
+    },
+    {
+      "name": "Zitrone",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Limette",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Grapefruit",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Trauben",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Erdbeeren",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Himbeeren",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Blaubeeren / Heidelbeeren",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Brombeeren",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Johannisbeeren",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kirschen",
+      "category": "Obst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Pflaume / Zwetschge",
+      "category": "Obst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Pfirsich",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Nektarine",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Aprikose",
+      "category": "Obst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Kiwi",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Mango",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Ananas",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Wassermelone",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Honigmelone",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Granatapfel",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Avocado",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Feige",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Kaki / Sharon",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Litschi",
+      "category": "Obst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Papaya",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Maracuja / Passionsfrucht",
+      "category": "Obst",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Rhabarber",
+      "category": "Obst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Datteln",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Rosinen",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Trockenpflaumen",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Cranberries",
+      "category": "Obst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kartoffeln",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "kg"
+    },
+    {
+      "name": "Süßkartoffeln",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Zwiebeln",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Netz"
+    },
+    {
+      "name": "Rote Zwiebeln",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Netz"
+    },
+    {
+      "name": "Schalotten",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Netz"
+    },
+    {
+      "name": "Frühlingszwiebeln",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Bund"
+    },
+    {
+      "name": "Knoblauch",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Tomaten",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Cherrytomaten",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Rispentomaten",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Salatgurke",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Paprika",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Spitzpaprika",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Karotten / Möhren",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "kg"
+    },
+    {
+      "name": "Zucchini",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Aubergine",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Brokkoli",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Blumenkohl",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Rosenkohl",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Weißkohl",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Rotkohl",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Wirsing",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Spitzkohl",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Chinakohl",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Grünkohl",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Kohlrabi",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Spinat (frisch)",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Rucola",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Feldsalat",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Eisbergsalat",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Kopfsalat",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Römersalat",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Radicchio",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Chicorée",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Champignons",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Pfifferlinge",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Austernpilze",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Lauch / Porree",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Staudensellerie",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Knollensellerie",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Fenchel",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Rote Bete",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Radieschen",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Bund"
+    },
+    {
+      "name": "Rettich",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Spargel",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Grüne Bohnen",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Zuckerschoten",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Maiskolben",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kürbis (Hokkaido)",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Butternut-Kürbis",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Ingwer",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Kurkuma",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Chili / Peperoni",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Petersilie",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Bund"
+    },
+    {
+      "name": "Schnittlauch",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Bund"
+    },
+    {
+      "name": "Basilikum",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Koriander",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Bund"
+    },
+    {
+      "name": "Dill",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Bund"
+    },
+    {
+      "name": "Minze",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Bund"
+    },
+    {
+      "name": "Rosmarin",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Thymian",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Salbei",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Sprossen",
+      "category": "Gemüse & Kräuter",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Brot (Mischbrot)",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Vollkornbrot",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Schwarzbrot / Pumpernickel",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Graubrot",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Dinkelbrot",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Baguette",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Ciabatta",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Toastbrot",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Vollkorntoast",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Sandwichtoast",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Brötchen",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Vollkornbrötchen",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Laugenbrötchen / Laugenstange",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Brezel",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Croissant",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Aufbackbrötchen",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Wraps / Tortillas",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Fladenbrot / Pita",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Knäckebrot",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Zwieback",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Paniermehl / Semmelbrösel",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Burger-Brötchen",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Hotdog-Brötchen",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Hefezopf",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Kuchen / Gebäck",
+      "category": "Backwaren & Brot",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Milch",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "l"
+    },
+    {
+      "name": "H-Milch",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "l"
+    },
+    {
+      "name": "Buttermilch",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Kefir",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Butter",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Streichfett / Halbfettbutter",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Margarine",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Schlagsahne",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Kochsahne",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Crème fraîche",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Schmand",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Saure Sahne",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Quark (Magerquark)",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Speisequark",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Kräuterquark",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Naturjoghurt",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Griechischer Joghurt",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Fruchtjoghurt",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Skyr",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Pudding",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Milchreis",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Eier",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kaffeesahne / Kondensmilch",
+      "category": "Milchprodukte & Eier",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Gouda",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Edamer",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Emmentaler",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Bergkäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Cheddar",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tilsiter",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Butterkäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Mozzarella",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Burrata",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Feta / Schafskäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Halloumi",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Parmesan / Grana Padano",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Pecorino",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Camembert",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Brie",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Gorgonzola",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Ziegenkäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Frischkäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Kräuterfrischkäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Ricotta",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Mascarpone",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Körniger Frischkäse / Hüttenkäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Reibekäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Raclettekäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Schmelzkäse",
+      "category": "Käse & Aufschnitt",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Hähnchenbrustfilet",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Hähnchenschenkel",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Putenschnitzel",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Putenbrustfilet",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Hackfleisch (gemischt)",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Rinderhackfleisch",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Schweineschnitzel",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Schweinefilet",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Rindersteak",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Rindergulasch",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Geschnetzeltes",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Bratwurst",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Wiener Würstchen",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Bockwurst",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Weißwurst",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Salami",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kochschinken",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Rohschinken / Schwarzwälder Schinken",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Putenbrust-Aufschnitt",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Lyoner / Fleischwurst",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Mortadella",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Leberwurst",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Mettwurst",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Speckwürfel / Bacon",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Frikadellen / Buletten",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Fleischkäse / Leberkäse",
+      "category": "Fleisch & Wurst",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Lachsfilet",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Räucherlachs",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Forellenfilet",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kabeljau / Dorsch",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Seelachsfilet",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Pangasiusfilet",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Thunfischsteak",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "g"
+    },
+    {
+      "name": "Garnelen / Scampi",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Matjes / Hering",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Makrele",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Fischfrikadellen",
+      "category": "Fisch & Meeresfrüchte",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Hafermilch / Haferdrink",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "l"
+    },
+    {
+      "name": "Sojamilch / Sojadrink",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "l"
+    },
+    {
+      "name": "Mandelmilch / Mandeldrink",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "l"
+    },
+    {
+      "name": "Kokosdrink",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "l"
+    },
+    {
+      "name": "Sojajoghurt",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Kokosjoghurt",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Tofu (Natur)",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Räuchertofu",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tempeh",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Seitan",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Veganes Hack",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Vegane Schnitzel",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Vegane Bratwurst",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Veganer Aufschnitt",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Veganer Käse",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Veganer Frischkäse",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Hummus",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Falafel",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Pflanzliche Kochcreme",
+      "category": "Vegane & Vegetarische Alternativen",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Pizza",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Pommes frites",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kroketten",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kartoffelspalten / Wedges",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Erbsen",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Spinat / Rahmspinat",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Brokkoli",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Gemüsemischung",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Beeren",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Kräuter",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Fischstäbchen",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Schlemmerfilet",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Lachs",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Garnelen",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Chicken Nuggets",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Eis / Speiseeis",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Eis am Stiel",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Blätterteig (TK)",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Laugengebäck (TK)",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tiefkühl-Torte / Kuchen",
+      "category": "Tiefkühlkost",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Spaghetti",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Penne",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Fusilli",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tagliatelle",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Lasagneplatten",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Vollkornnudeln",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Gnocchi",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tortellini",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Basmatireis",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Jasminreis",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Langkornreis",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Risottoreis",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Milchreis (trocken)",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Couscous",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Bulgur",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Quinoa",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Polenta / Maisgrieß",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Weizengrieß",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Linsen (rot/braun)",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kichererbsen (getrocknet)",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Weizenmehl",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Dinkelmehl",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Vollkornmehl",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Speisestärke",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Backpulver",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Natron",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Trockenhefe",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Frischhefe",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Vanillezucker",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Zucker",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Rohrzucker / Brauner Zucker",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Puderzucker",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Gelierzucker",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Salz / Speisesalz",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Meersalz",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Haferflocken",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Müsli",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Cornflakes / Cerealien",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Granola / Knuspermüsli",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Chiasamen",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Leinsamen",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Sonnenblumenkerne",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kürbiskerne",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Sesam",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Mandeln",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Walnüsse",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Haselnüsse",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Cashewkerne",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Semmelknödel / Kartoffelknödel",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kartoffelpüree-Pulver",
+      "category": "Grundnahrungsmittel & Trockenwaren",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Passierte Tomaten",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Gehackte Tomaten",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Tomatenmark",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Tube"
+    },
+    {
+      "name": "Kidneybohnen",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Weiße Bohnen",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Kichererbsen (Dose)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Mais (Dose)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Erbsen & Möhren",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Linsen (Dose)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Kokosmilch",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Thunfisch (Dose)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Sardinen",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Gewürzgurken / Essiggurken",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Silberzwiebeln",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Oliven",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Kapern",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Getrocknete Tomaten",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Jalapeños",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Rotkohl (Glas)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Sauerkraut",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Apfelmus",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Pfirsiche (Dose)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Ananas (Dose)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Kirschen (Glas)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Champignons (Dose/Glas)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Spargel (Glas)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Pesto (grün/rot)",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Fertig-Nudelsoße",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Brühe / Gemüsebrühe",
+      "category": "Konserven & Gläser",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Olivenöl",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Rapsöl",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Sonnenblumenöl",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Sesamöl",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Kokosöl",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Bratöl",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Balsamico-Essig",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Weißweinessig",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Apfelessig",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Ketchup",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Mayonnaise",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Senf",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Sojasoße",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Worcestershire-Soße",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Tabasco / Chili-Soße",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Barbecue-Soße",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Salatdressing",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Meerrettich",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Pfeffer (schwarz)",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Paprikapulver",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Currypulver",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kurkuma (gemahlen)",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kreuzkümmel / Cumin",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Oregano",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Thymian (getrocknet)",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Rosmarin (getrocknet)",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Basilikum (getrocknet)",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Zimt",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Muskatnuss",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Lorbeerblätter",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Chiliflocken / Cayennepfeffer",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Knoblauchpulver",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Italienische Kräuter",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kräuter der Provence",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Zitronensaft (Flasche)",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Süßstoff / Stevia",
+      "category": "Öle, Essig, Soßen & Gewürze",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Honig",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Marmelade / Konfitüre",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Nuss-Nougat-Creme",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Erdnussbutter / Erdnussmus",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Mandelmus",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Tahin / Sesammus",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Ahornsirup",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Agavendicksaft",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Zuckerrübensirup",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Becher"
+    },
+    {
+      "name": "Gemüseaufstrich",
+      "category": "Aufstriche, Honig & Marmelade",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Filterkaffee",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kaffeebohnen",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Espressokapseln / Pads",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Löslicher Kaffee",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Glas"
+    },
+    {
+      "name": "Schwarzer Tee",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Grüner Tee",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kräutertee",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Früchtetee",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Pfefferminztee",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kamillentee",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kakaopulver",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Trinkschokolade",
+      "category": "Kaffee, Tee & Kakao",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Mineralwasser (still)",
+      "category": "Getränke",
+      "defaultUnit": "Kasten"
+    },
+    {
+      "name": "Mineralwasser (spritzig)",
+      "category": "Getränke",
+      "defaultUnit": "Kasten"
+    },
+    {
+      "name": "Apfelsaft",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Orangensaft",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Multivitaminsaft",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Apfelschorle",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Cola",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Limonade",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Eistee",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Tonic Water / Bitter Lemon",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Energy Drink",
+      "category": "Getränke",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Bier",
+      "category": "Getränke",
+      "defaultUnit": "Kasten"
+    },
+    {
+      "name": "Alkoholfreies Bier",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Radler",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Weißwein",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Rotwein",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Sekt / Prosecco",
+      "category": "Getränke",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Vollmilchschokolade",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Tafel"
+    },
+    {
+      "name": "Zartbitterschokolade",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Tafel"
+    },
+    {
+      "name": "Weiße Schokolade",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Tafel"
+    },
+    {
+      "name": "Schokoriegel",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Pralinen",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Fruchtgummi / Gummibärchen",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Lakritz",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Bonbons / Lutschbonbons",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kaugummi",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kekse / Butterkekse",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Schokokekse",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Waffeln",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kartoffelchips",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tortilla-Chips",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Salzstangen / Laugengebäck",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Flips / Erdnussflips",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Popcorn",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Reiswaffeln",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Maiswaffeln",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Studentenfutter",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Erdnüsse (geröstet)",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Pistazien",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Müsliriegel",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Proteinriegel",
+      "category": "Süßigkeiten & Snacks",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Zahnpasta",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Tube"
+    },
+    {
+      "name": "Zahnbürste",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Zahnseide",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Mundspülung",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Duschgel",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Shampoo",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Haarspülung / Conditioner",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Flüssigseife",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Handseife (Stück)",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Handcreme",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Tube"
+    },
+    {
+      "name": "Bodylotion",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Gesichtscreme",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Tiegel"
+    },
+    {
+      "name": "Sonnencreme",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Lippenpflegestift",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Deo / Deodorant",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Parfüm",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Rasierer / Rasierklingen",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Rasierschaum / Rasiergel",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Aftershave",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Wattestäbchen",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Wattepads",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Pflaster",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Desinfektionsmittel",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Taschentücher",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Feuchttücher",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Tampons",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Binden / Slipeinlagen",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kondome",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Haargel / Haarspray",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Badezusatz",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Nagellackentferner",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Vitamin-Tabletten / Nahrungsergänzung",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Schmerztabletten / Apotheke",
+      "category": "Drogerie & Körperpflege",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Spülmittel",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Spülmaschinentabs",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Klarspüler",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Spülmaschinensalz",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Vollwaschmittel",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Colorwaschmittel",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Feinwaschmittel",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Weichspüler",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Fleckenspray",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Allzweckreiniger",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Badreiniger",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "WC-Reiniger",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "WC-Duftstein",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Glasreiniger",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Scheuermilch",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Rohrreiniger",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Entkalker",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Backofenreiniger",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Schwämme / Topfschwämme",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Spültücher / Mikrofasertücher",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Stahlwolle / Topfreiniger",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Gummihandschuhe",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Staubsaugerbeutel",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Fusselrolle",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Teelichter",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kerzen",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Streichhölzer / Feuerzeug",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Batterien (AA / AAA)",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Glühbirnen / LED",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Schuhcreme",
+      "category": "Haushalt & Reinigung",
+      "defaultUnit": "Tube"
+    },
+    {
+      "name": "Toilettenpapier",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Küchenrolle",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kosmetiktücher",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Servietten",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Müllbeutel",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Rolle"
+    },
+    {
+      "name": "Biomüllbeutel",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Rolle"
+    },
+    {
+      "name": "Gelbe Säcke",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Rolle"
+    },
+    {
+      "name": "Gefrierbeutel",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Frühstücksbeutel",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Backpapier",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Rolle"
+    },
+    {
+      "name": "Alufolie",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Rolle"
+    },
+    {
+      "name": "Frischhaltefolie",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Rolle"
+    },
+    {
+      "name": "Kaffeefilter",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Teefilter",
+      "category": "Papierwaren & Folien",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Katzenfutter (Nass)",
+      "category": "Tierbedarf",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Katzenfutter (Trocken)",
+      "category": "Tierbedarf",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Katzenstreu",
+      "category": "Tierbedarf",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Katzenleckerli",
+      "category": "Tierbedarf",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Hundefutter (Nass)",
+      "category": "Tierbedarf",
+      "defaultUnit": "Dose"
+    },
+    {
+      "name": "Hundefutter (Trocken)",
+      "category": "Tierbedarf",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Hundeleckerli",
+      "category": "Tierbedarf",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Kotbeutel",
+      "category": "Tierbedarf",
+      "defaultUnit": "Rolle"
+    },
+    {
+      "name": "Einkaufstasche / Tragetasche",
+      "category": "Sonstiges",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Blumenstrauß",
+      "category": "Sonstiges",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Blumenerde",
+      "category": "Sonstiges",
+      "defaultUnit": "Pkg"
+    },
+    {
+      "name": "Blumendünger",
+      "category": "Sonstiges",
+      "defaultUnit": "Flasche"
+    },
+    {
+      "name": "Geschenkpapier",
+      "category": "Sonstiges",
+      "defaultUnit": "Rolle"
+    },
+    {
+      "name": "Klebeband / Tesa",
+      "category": "Sonstiges",
+      "defaultUnit": "Rolle"
+    },
+    {
+      "name": "Briefmarken",
+      "category": "Sonstiges",
+      "defaultUnit": "Stk"
+    },
+    {
+      "name": "Zeitschrift / Zeitung",
+      "category": "Sonstiges",
+      "defaultUnit": "Stk"
+    }
+  ]
+}
