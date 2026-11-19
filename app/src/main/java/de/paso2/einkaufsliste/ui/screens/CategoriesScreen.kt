@@ -1,34 +1,35 @@
 package de.paso2.einkaufsliste.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -39,10 +40,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import de.paso2.einkaufsliste.data.CategoryEntity
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun CategoriesScreen(
     categories: List<CategoryEntity>,
@@ -83,30 +85,28 @@ fun CategoriesScreen(
                 .padding(innerPadding)
         ) {
             Text(
-                text = "Die Einkaufsliste wird exakt in dieser Reihenfolge sortiert.",
-                style = MaterialTheme.typography.bodyMedium,
+                text = "Pfeile ändern die Reihenfolge · Tippen zum Bearbeiten oder Löschen.",
+                style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
             )
 
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 4.dp, bottom = 96.dp),
-                verticalArrangement = Arrangement.spacedBy(6.dp)
+                contentPadding = PaddingValues(start = 12.dp, end = 12.dp, top = 4.dp, bottom = 96.dp)
             ) {
                 itemsIndexed(categories, key = { _, cat -> cat.id }) { index, cat ->
-                    Surface(
+                    Column(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .animateItem(),
-                        shape = RoundedCornerShape(14.dp),
-                        color = MaterialTheme.colorScheme.surface,
-                        tonalElevation = 1.dp
+                            .animateItem()
                     ) {
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(start = 14.dp, end = 4.dp, top = 6.dp, bottom = 6.dp),
+                                .heightIn(min = 46.dp)
+                                .clickable { editingCategory = cat }
+                                .padding(start = 8.dp, end = 2.dp, top = 4.dp, bottom = 4.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
@@ -118,27 +118,29 @@ fun CategoriesScreen(
                             Text(
                                 text = cat.name,
                                 style = MaterialTheme.typography.bodyLarge,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
                                 modifier = Modifier.weight(1f)
                             )
                             IconButton(
                                 onClick = { onMoveCategory(cat.id, true) },
-                                enabled = index > 0
+                                enabled = index > 0,
+                                modifier = Modifier.size(40.dp)
                             ) {
                                 Icon(Icons.Default.KeyboardArrowUp, contentDescription = "Nach oben")
                             }
                             IconButton(
                                 onClick = { onMoveCategory(cat.id, false) },
-                                enabled = index < categories.lastIndex
+                                enabled = index < categories.lastIndex,
+                                modifier = Modifier.size(40.dp)
                             ) {
                                 Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Nach unten")
                             }
-                            IconButton(onClick = { editingCategory = cat }) {
-                                Icon(Icons.Outlined.Edit, contentDescription = "Umbenennen")
-                            }
-                            IconButton(onClick = { deletingCategory = cat }) {
-                                Icon(Icons.Outlined.Delete, contentDescription = "Löschen")
-                            }
                         }
+                        HorizontalDivider(
+                            thickness = 0.5.dp,
+                            color = MaterialTheme.colorScheme.outlineVariant
+                        )
                     }
                 }
             }
@@ -180,7 +182,7 @@ fun CategoriesScreen(
         var name by remember(cat.id) { mutableStateOf(cat.name) }
         AlertDialog(
             onDismissRequest = { editingCategory = null },
-            title = { Text("Kategorie umbenennen") },
+            title = { Text("Kategorie bearbeiten") },
             text = {
                 OutlinedTextField(
                     value = name,
@@ -191,18 +193,30 @@ fun CategoriesScreen(
                 )
             },
             confirmButton = {
-                Button(
-                    onClick = {
-                        onRenameCategory(cat, name)
-                        editingCategory = null
-                    },
-                    enabled = name.isNotBlank()
+                FlowRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End),
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-                    Text("Speichern")
+                    TextButton(onClick = {
+                        editingCategory = null
+                        deletingCategory = cat
+                    }) {
+                        Text("Löschen", color = MaterialTheme.colorScheme.error)
+                    }
+                    TextButton(onClick = { editingCategory = null }) {
+                        Text("Abbrechen")
+                    }
+                    Button(
+                        onClick = {
+                            onRenameCategory(cat, name)
+                            editingCategory = null
+                        },
+                        enabled = name.isNotBlank()
+                    ) {
+                        Text("Speichern")
+                    }
                 }
-            },
-            dismissButton = {
-                TextButton(onClick = { editingCategory = null }) { Text("Abbrechen") }
             }
         )
     }

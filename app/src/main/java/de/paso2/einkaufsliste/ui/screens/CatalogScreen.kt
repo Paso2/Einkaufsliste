@@ -1,7 +1,6 @@
 package de.paso2.einkaufsliste.ui.screens
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -10,10 +9,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
@@ -23,14 +24,13 @@ import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -41,10 +41,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import de.paso2.einkaufsliste.data.CategoryEntity
 import de.paso2.einkaufsliste.data.ProductEntity
-import de.paso2.einkaufsliste.domain.QuantityMerger
+import de.paso2.einkaufsliste.ui.components.CategoryDropdown
+import de.paso2.einkaufsliste.ui.components.UnitDropdown
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -60,6 +62,7 @@ fun CatalogScreen(
     var query by remember { mutableStateOf("") }
     var showAddDialog by remember { mutableStateOf(false) }
     var editingProduct by remember { mutableStateOf<ProductEntity?>(null) }
+    var deletingProduct by remember { mutableStateOf<ProductEntity?>(null) }
 
     val filtered = remember(query, products, categoryMap) {
         val q = query.trim()
@@ -117,46 +120,54 @@ fun CatalogScreen(
 
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 4.dp, bottom = 96.dp),
-                verticalArrangement = Arrangement.spacedBy(6.dp)
+                contentPadding = PaddingValues(start = 12.dp, end = 12.dp, top = 4.dp, bottom = 96.dp)
             ) {
                 items(filtered, key = { it.id }) { prod ->
                     val catName = prod.categoryId?.let { categoryMap[it]?.name } ?: "Sonstiges"
-                    Surface(
-                        shape = RoundedCornerShape(12.dp),
-                        color = MaterialTheme.colorScheme.surface,
-                        tonalElevation = 1.dp,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { editingProduct = prod }
-                    ) {
+                    Column(modifier = Modifier.fillMaxWidth()) {
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(start = 14.dp, end = 6.dp, top = 10.dp, bottom = 10.dp),
+                                .clickable { editingProduct = prod }
+                                .padding(start = 8.dp, end = 2.dp, top = 6.dp, bottom = 6.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Column(modifier = Modifier.weight(1f)) {
-                                Text(prod.name, style = MaterialTheme.typography.bodyLarge)
+                                Text(
+                                    text = prod.name,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
                                 Text(
                                     text = buildString {
                                         append(catName)
                                         if (!prod.defaultUnit.isNullOrBlank()) {
-                                            append(" • Standard: ${prod.defaultUnit}")
+                                            append(" · ${prod.defaultUnit}")
                                         }
                                     },
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
                                 )
                             }
-                            IconButton(onClick = { onDeleteProduct(prod) }) {
+                            IconButton(
+                                onClick = { deletingProduct = prod },
+                                modifier = Modifier.size(40.dp)
+                            ) {
                                 Icon(
                                     Icons.Outlined.Delete,
                                     contentDescription = "Löschen",
-                                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.size(20.dp)
                                 )
                             }
                         }
+                        HorizontalDivider(
+                            thickness = 0.5.dp,
+                            color = MaterialTheme.colorScheme.outlineVariant
+                        )
                     }
                 }
             }
@@ -192,6 +203,25 @@ fun CatalogScreen(
             onDismiss = { editingProduct = null }
         )
     }
+
+    deletingProduct?.let { prod ->
+        AlertDialog(
+            onDismissRequest = { deletingProduct = null },
+            title = { Text("„${prod.name}“ löschen?") },
+            text = { Text("Das Produkt wird dauerhaft aus dem Katalog entfernt.") },
+            confirmButton = {
+                Button(onClick = {
+                    onDeleteProduct(prod)
+                    deletingProduct = null
+                }) {
+                    Text("Löschen")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { deletingProduct = null }) { Text("Abbrechen") }
+            }
+        )
+    }
 }
 
 @Composable
@@ -212,7 +242,11 @@ private fun ProductEditorDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
         text = {
-            Column(modifier = Modifier.fillMaxWidth()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState())
+            ) {
                 OutlinedTextField(
                     value = name,
                     onValueChange = { name = it },
@@ -221,37 +255,19 @@ private fun ProductEditorDialog(
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    text = "Kategorie",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.primary
+                CategoryDropdown(
+                    categories = categories,
+                    selectedCategoryId = selectedCatId,
+                    onSelectCategory = { selectedCatId = it },
+                    modifier = Modifier.fillMaxWidth()
                 )
-                Spacer(modifier = Modifier.height(4.dp))
-                LazyRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    items(categories, key = { it.id }) { cat ->
-                        FilterChip(
-                            selected = selectedCatId == cat.id,
-                            onClick = { selectedCatId = cat.id },
-                            label = { Text(cat.name) }
-                        )
-                    }
-                }
                 Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    text = "Standard-Einheit (optional)",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.primary
+                UnitDropdown(
+                    selectedUnit = selectedUnit,
+                    onSelectUnit = { selectedUnit = it },
+                    label = "Standard-Einheit (optional)",
+                    modifier = Modifier.fillMaxWidth()
                 )
-                Spacer(modifier = Modifier.height(4.dp))
-                LazyRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    items(QuantityMerger.standardUnits) { unit ->
-                        FilterChip(
-                            selected = selectedUnit == unit,
-                            onClick = { selectedUnit = if (selectedUnit == unit) null else unit },
-                            label = { Text(unit) }
-                        )
-                    }
-                }
             }
         },
         confirmButton = {

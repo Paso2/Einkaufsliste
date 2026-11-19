@@ -3,19 +3,20 @@ package de.paso2.einkaufsliste.ui.screens
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -39,7 +40,9 @@ import de.paso2.einkaufsliste.data.ShoppingListItemEntity
 import de.paso2.einkaufsliste.data.ThemeMode
 import de.paso2.einkaufsliste.domain.QuantityMerger
 import de.paso2.einkaufsliste.ui.DuplicatePromptState
+import de.paso2.einkaufsliste.ui.components.UnitDropdown
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun DuplicateItemDialog(
     state: DuplicatePromptState,
@@ -55,7 +58,11 @@ fun DuplicateItemDialog(
         onDismissRequest = onDismiss,
         title = { Text("${state.product.name} bereits vorhanden") },
         text = {
-            Column(modifier = Modifier.fillMaxWidth()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState())
+            ) {
                 if (state.existingItem.isChecked) {
                     Text(
                         text = "Dieser Artikel steht bereits als „Gekauft“ unten auf der Liste.",
@@ -99,26 +106,26 @@ fun DuplicateItemDialog(
             }
         },
         confirmButton = {
-            Column(
+            FlowRow(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.End
+                horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End),
+                verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    TextButton(onClick = onDismiss) {
-                        Text("Abbrechen")
-                    }
-                    OutlinedButton(onClick = onSeparate) {
-                        Text("Separat")
-                    }
-                    Button(onClick = onMerge) {
-                        Text("Zusammenführen")
-                    }
+                TextButton(onClick = onDismiss) {
+                    Text("Abbrechen")
+                }
+                OutlinedButton(onClick = onSeparate) {
+                    Text("Separat")
+                }
+                Button(onClick = onMerge) {
+                    Text("Zusammenführen")
                 }
             }
         }
     )
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun EditItemDialog(
     item: ShoppingListItemEntity,
@@ -138,26 +145,31 @@ fun EditItemDialog(
         onDismissRequest = onDismiss,
         title = { Text(item.productName) },
         text = {
-            Column(modifier = Modifier.fillMaxWidth()) {
-                OutlinedTextField(
-                    value = qtyText,
-                    onValueChange = { qtyText = it },
-                    label = { Text("Menge") },
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                LazyRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    items(QuantityMerger.standardUnits) { unit ->
-                        FilterChip(
-                            selected = selectedUnit == unit,
-                            onClick = { selectedUnit = if (selectedUnit == unit) null else unit },
-                            label = { Text(unit) }
-                        )
-                    }
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState())
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    OutlinedTextField(
+                        value = qtyText,
+                        onValueChange = { qtyText = it },
+                        label = { Text("Menge") },
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                        singleLine = true,
+                        modifier = Modifier.weight(1f)
+                    )
+                    UnitDropdown(
+                        selectedUnit = selectedUnit,
+                        onSelectUnit = { selectedUnit = it },
+                        modifier = Modifier.weight(1f)
+                    )
                 }
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(10.dp))
                 OutlinedTextField(
                     value = noteText,
                     onValueChange = { noteText = it },
@@ -168,24 +180,22 @@ fun EditItemDialog(
             }
         },
         confirmButton = {
-            Row(
+            FlowRow(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End),
+                verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 TextButton(onClick = onDelete) {
                     Text("Entfernen", color = MaterialTheme.colorScheme.error)
                 }
-                Row {
-                    TextButton(onClick = onDismiss) {
-                        Text("Abbrechen")
-                    }
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Button(onClick = {
-                        val parsedQty = qtyText.replace(',', '.').toDoubleOrNull()
-                        onSave(parsedQty, if (parsedQty != null) selectedUnit else null, noteText)
-                    }) {
-                        Text("Speichern")
-                    }
+                TextButton(onClick = onDismiss) {
+                    Text("Abbrechen")
+                }
+                Button(onClick = {
+                    val parsedQty = qtyText.replace(',', '.').toDoubleOrNull()
+                    onSave(parsedQty, if (parsedQty != null) selectedUnit else null, noteText)
+                }) {
+                    Text("Speichern")
                 }
             }
         }

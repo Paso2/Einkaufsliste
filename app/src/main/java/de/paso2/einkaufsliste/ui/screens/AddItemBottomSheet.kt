@@ -11,14 +11,16 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
@@ -26,7 +28,6 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -45,10 +46,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import de.paso2.einkaufsliste.data.CategoryEntity
 import de.paso2.einkaufsliste.data.ProductEntity
-import de.paso2.einkaufsliste.domain.QuantityMerger
+import de.paso2.einkaufsliste.ui.components.CategoryDropdown
+import de.paso2.einkaufsliste.ui.components.UnitDropdown
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
@@ -77,7 +80,7 @@ fun AddItemBottomSheet(
     val filteredProducts = remember(searchQuery, products) {
         val q = searchQuery.trim()
         if (q.isEmpty()) {
-            products.take(40)
+            products
         } else {
             products.filter { it.name.contains(q, ignoreCase = true) }
                 .sortedWith(
@@ -101,84 +104,105 @@ fun AddItemBottomSheet(
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(0.88f)
+                .imePadding()
                 .padding(horizontal = 16.dp)
         ) {
             when {
                 selectedProduct != null -> {
                     val prod = selectedProduct!!
-                    ProductDetailsComposer(
-                        title = prod.name,
-                        subtitle = prod.categoryId?.let { categoryMap[it]?.name } ?: "Sonstiges",
-                        quantityText = quantityText,
-                        onQuantityChange = { quantityText = it },
-                        selectedUnit = selectedUnit,
-                        onUnitSelect = { selectedUnit = it },
-                        noteText = noteText,
-                        onNoteChange = { noteText = it },
-                        onCancel = {
-                            selectedProduct = null
-                            quantityText = ""
-                            noteText = ""
-                        },
-                        onConfirm = {
-                            val qty = quantityText.replace(',', '.').toDoubleOrNull()
-                            val unit = if (qty != null) selectedUnit else null
-                            onAddProduct(prod, qty, unit, noteText)
-                            selectedProduct = null
-                            quantityText = ""
-                            noteText = ""
-                            onDismiss()
-                        }
-                    )
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .verticalScroll(rememberScrollState())
+                            .padding(bottom = 24.dp)
+                    ) {
+                        ProductDetailsComposer(
+                            title = prod.name,
+                            subtitle = prod.categoryId?.let { categoryMap[it]?.name } ?: "Sonstiges",
+                            quantityText = quantityText,
+                            onQuantityChange = { quantityText = it },
+                            selectedUnit = selectedUnit,
+                            onUnitSelect = { selectedUnit = it },
+                            noteText = noteText,
+                            onNoteChange = { noteText = it },
+                            confirmEnabled = true,
+                            onCancel = {
+                                selectedProduct = null
+                                quantityText = ""
+                                noteText = ""
+                            },
+                            onConfirm = {
+                                val qty = quantityText.replace(',', '.').toDoubleOrNull()
+                                val unit = if (qty != null) selectedUnit else null
+                                onAddProduct(prod, qty, unit, noteText)
+                                selectedProduct = null
+                                quantityText = ""
+                                noteText = ""
+                                onDismiss()
+                            }
+                        )
+                    }
                 }
 
                 creatingNewName != null -> {
-                    val newName = creatingNewName!!
-                    Text(
-                        text = "Neues Produkt: $newName",
-                        style = MaterialTheme.typography.titleLarge
-                    )
-                    Spacer(modifier = Modifier.height(10.dp))
-                    Text(
-                        text = "Kategorie wählen",
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                    Spacer(modifier = Modifier.height(6.dp))
-                    LazyRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                        items(categories, key = { it.id }) { cat ->
-                            FilterChip(
-                                selected = newProductCategoryId == cat.id,
-                                onClick = { newProductCategoryId = cat.id },
-                                label = { Text(cat.name) }
-                            )
-                        }
+                    val currentNewName = creatingNewName!!
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .verticalScroll(rememberScrollState())
+                            .padding(bottom = 24.dp)
+                    ) {
+                        Text(
+                            text = "Neues Produkt anlegen",
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        OutlinedTextField(
+                            value = currentNewName,
+                            onValueChange = { creatingNewName = it },
+                            label = { Text("Produktname") },
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(modifier = Modifier.height(10.dp))
+                        CategoryDropdown(
+                            categories = categories,
+                            selectedCategoryId = newProductCategoryId,
+                            onSelectCategory = { newProductCategoryId = it },
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(modifier = Modifier.height(10.dp))
+                        ProductDetailsComposer(
+                            title = "",
+                            subtitle = null,
+                            quantityText = quantityText,
+                            onQuantityChange = { quantityText = it },
+                            selectedUnit = selectedUnit,
+                            onUnitSelect = { selectedUnit = it },
+                            noteText = noteText,
+                            onNoteChange = { noteText = it },
+                            confirmEnabled = currentNewName.isNotBlank(),
+                            onCancel = {
+                                creatingNewName = null
+                                quantityText = ""
+                                noteText = ""
+                            },
+                            onConfirm = {
+                                val qty = quantityText.replace(',', '.').toDoubleOrNull()
+                                onCreateAndAddProduct(
+                                    currentNewName,
+                                    newProductCategoryId,
+                                    selectedUnit,
+                                    qty,
+                                    noteText
+                                )
+                                creatingNewName = null
+                                quantityText = ""
+                                noteText = ""
+                                onDismiss()
+                            }
+                        )
                     }
-                    Spacer(modifier = Modifier.height(12.dp))
-                    ProductDetailsComposer(
-                        title = "",
-                        subtitle = null,
-                        quantityText = quantityText,
-                        onQuantityChange = { quantityText = it },
-                        selectedUnit = selectedUnit,
-                        onUnitSelect = { selectedUnit = it },
-                        noteText = noteText,
-                        onNoteChange = { noteText = it },
-                        onCancel = {
-                            creatingNewName = null
-                            quantityText = ""
-                            noteText = ""
-                        },
-                        onConfirm = {
-                            val qty = quantityText.replace(',', '.').toDoubleOrNull()
-                            val unit = if (qty != null) selectedUnit else selectedUnit
-                            onCreateAndAddProduct(newName, newProductCategoryId, unit, qty, noteText)
-                            creatingNewName = null
-                            quantityText = ""
-                            noteText = ""
-                            onDismiss()
-                        }
-                    )
                 }
 
                 else -> {
@@ -199,12 +223,11 @@ fun AddItemBottomSheet(
                         modifier = Modifier.fillMaxWidth()
                     )
 
-                    Spacer(modifier = Modifier.height(12.dp))
+                    Spacer(modifier = Modifier.height(10.dp))
 
                     LazyColumn(
                         modifier = Modifier.weight(1f),
-                        contentPadding = PaddingValues(bottom = 24.dp),
-                        verticalArrangement = Arrangement.spacedBy(6.dp)
+                        contentPadding = PaddingValues(bottom = 24.dp)
                     ) {
                         if (searchQuery.isBlank() && frequentProducts.isNotEmpty()) {
                             item(key = "frequent_section") {
@@ -235,11 +258,11 @@ fun AddItemBottomSheet(
                                         )
                                     }
                                 }
-                                Spacer(modifier = Modifier.height(12.dp))
+                                Spacer(modifier = Modifier.height(10.dp))
                                 HorizontalDivider()
                                 Spacer(modifier = Modifier.height(8.dp))
                                 Text(
-                                    text = "ALLE PRODUKTE",
+                                    text = "ALLE PRODUKTE (${products.size})",
                                     style = MaterialTheme.typography.labelMedium,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     modifier = Modifier.padding(bottom = 4.dp)
@@ -255,6 +278,7 @@ fun AddItemBottomSheet(
                                     color = MaterialTheme.colorScheme.primaryContainer,
                                     modifier = Modifier
                                         .fillMaxWidth()
+                                        .padding(bottom = 8.dp)
                                         .clickable {
                                             creatingNewName = trimmed
                                             selectedUnit = "Stk"
@@ -282,40 +306,40 @@ fun AddItemBottomSheet(
 
                         items(filteredProducts, key = { it.id }) { prod ->
                             val catName = prod.categoryId?.let { categoryMap[it]?.name } ?: "Sonstiges"
-                            Surface(
-                                shape = RoundedCornerShape(12.dp),
-                                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f),
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .clickable {
-                                        selectedProduct = prod
-                                        selectedUnit = prod.defaultUnit ?: "Stk"
-                                        quantityText = ""
-                                        noteText = ""
-                                    }
-                            ) {
+                            Column(modifier = Modifier.fillMaxWidth()) {
                                 Row(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(start = 14.dp, end = 6.dp, top = 8.dp, bottom = 8.dp),
+                                        .clickable {
+                                            selectedProduct = prod
+                                            selectedUnit = prod.defaultUnit ?: "Stk"
+                                            quantityText = ""
+                                            noteText = ""
+                                        }
+                                        .padding(start = 6.dp, end = 2.dp, top = 6.dp, bottom = 6.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Column(modifier = Modifier.weight(1f)) {
                                         Text(
                                             text = prod.name,
-                                            style = MaterialTheme.typography.bodyLarge
+                                            style = MaterialTheme.typography.bodyLarge,
+                                            maxLines = 1,
+                                            overflow = TextOverflow.Ellipsis
                                         )
                                         Text(
                                             text = catName,
-                                            style = MaterialTheme.typography.bodyMedium,
-                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                            maxLines = 1,
+                                            overflow = TextOverflow.Ellipsis
                                         )
                                     }
                                     IconButton(
                                         onClick = {
                                             onAddProduct(prod, null, null, "")
                                             onDismiss()
-                                        }
+                                        },
+                                        modifier = Modifier.size(40.dp)
                                     ) {
                                         Icon(
                                             Icons.Default.Add,
@@ -324,6 +348,10 @@ fun AddItemBottomSheet(
                                         )
                                     }
                                 }
+                                HorizontalDivider(
+                                    thickness = 0.5.dp,
+                                    color = MaterialTheme.colorScheme.outlineVariant
+                                )
                             }
                         }
                     }
@@ -343,6 +371,7 @@ private fun ProductDetailsComposer(
     onUnitSelect: (String?) -> Unit,
     noteText: String,
     onNoteChange: (String) -> Unit,
+    confirmEnabled: Boolean,
     onCancel: () -> Unit,
     onConfirm: () -> Unit
 ) {
@@ -356,33 +385,28 @@ private fun ProductDetailsComposer(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+            Spacer(modifier = Modifier.height(12.dp))
         }
-        Spacer(modifier = Modifier.height(14.dp))
 
-        OutlinedTextField(
-            value = quantityText,
-            onValueChange = onQuantityChange,
-            label = { Text("Menge (optional, z. B. 1 oder 500)") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(10.dp))
-        Text(
-            text = "Einheit",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        Spacer(modifier = Modifier.height(4.dp))
-        LazyRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            items(QuantityMerger.standardUnits) { unit ->
-                FilterChip(
-                    selected = selectedUnit == unit,
-                    onClick = { onUnitSelect(if (selectedUnit == unit) null else unit) },
-                    label = { Text(unit) }
-                )
-            }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            OutlinedTextField(
+                value = quantityText,
+                onValueChange = onQuantityChange,
+                label = { Text("Menge") },
+                placeholder = { Text("z. B. 500") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                singleLine = true,
+                modifier = Modifier.weight(1f)
+            )
+            UnitDropdown(
+                selectedUnit = selectedUnit,
+                onSelectUnit = onUnitSelect,
+                modifier = Modifier.weight(1f)
+            )
         }
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -403,8 +427,11 @@ private fun ProductDetailsComposer(
                 Text("Zurück")
             }
             Spacer(modifier = Modifier.width(8.dp))
-            Button(onClick = onConfirm) {
-                Text("Zur Liste hinzufügen")
+            Button(
+                onClick = onConfirm,
+                enabled = confirmEnabled
+            ) {
+                Text("Hinzufügen")
             }
         }
     }

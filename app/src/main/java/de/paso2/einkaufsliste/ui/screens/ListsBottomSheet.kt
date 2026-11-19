@@ -13,7 +13,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
@@ -59,6 +61,7 @@ fun ListsBottomSheet(
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     var showCreateDialog by remember { mutableStateOf(false) }
     var renamingList by remember { mutableStateOf<ShoppingListEntity?>(null) }
+    var deletingList by remember { mutableStateOf<ShoppingListEntity?>(null) }
 
     ModalBottomSheet(
         onDismissRequest = onDismiss,
@@ -110,7 +113,7 @@ fun ListsBottomSheet(
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 16.dp, vertical = 12.dp),
+                                .padding(horizontal = 16.dp, vertical = 10.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             if (isSelected) {
@@ -129,7 +132,7 @@ fun ListsBottomSheet(
                             IconButton(onClick = { renamingList = list }) {
                                 Icon(Icons.Outlined.Edit, contentDescription = "Umbenennen")
                             }
-                            IconButton(onClick = { onDeleteList(list) }) {
+                            IconButton(onClick = { deletingList = list }) {
                                 Icon(Icons.Outlined.Delete, contentDescription = "Löschen")
                             }
                         }
@@ -147,7 +150,11 @@ fun ListsBottomSheet(
             onDismissRequest = { showCreateDialog = false },
             title = { Text("Neue Einkaufsliste") },
             text = {
-                Column(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .verticalScroll(rememberScrollState())
+                ) {
                     OutlinedTextField(
                         value = listName,
                         onValueChange = { listName = it },
@@ -156,15 +163,15 @@ fun ListsBottomSheet(
                         modifier = Modifier.fillMaxWidth()
                     )
                     if (frequentProducts.isNotEmpty()) {
-                        Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(14.dp))
                         HorizontalDivider()
-                        Spacer(modifier = Modifier.height(12.dp))
+                        Spacer(modifier = Modifier.height(10.dp))
                         Text(
                             text = "Häufig gekauft – direkt übernehmen:",
                             style = MaterialTheme.typography.labelMedium,
                             color = MaterialTheme.colorScheme.primary
                         )
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(6.dp))
                         FlowRow(
                             horizontalArrangement = Arrangement.spacedBy(6.dp),
                             verticalArrangement = Arrangement.spacedBy(4.dp)
@@ -234,6 +241,27 @@ fun ListsBottomSheet(
             },
             dismissButton = {
                 TextButton(onClick = { renamingList = null }) {
+                    Text("Abbrechen")
+                }
+            }
+        )
+    }
+
+    deletingList?.let { target ->
+        AlertDialog(
+            onDismissRequest = { deletingList = null },
+            title = { Text("„${target.name}“ löschen?") },
+            text = { Text("Alle Artikel in dieser Einkaufsliste werden entfernt.") },
+            confirmButton = {
+                Button(onClick = {
+                    onDeleteList(target)
+                    deletingList = null
+                }) {
+                    Text("Löschen")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { deletingList = null }) {
                     Text("Abbrechen")
                 }
             }
