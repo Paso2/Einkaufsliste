@@ -57,11 +57,8 @@ jobs:
             echo "KEY_ALIAS=$SECRET_KEY_ALIAS" >> $GITHUB_ENV
             echo "KEY_PASSWORD=$SECRET_KEY_PASSWORD" >> $GITHUB_ENV
           else
-            keytool -genkey -v -keystore "${{ runner.temp }}/debug.jks" -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
-            echo "KEYSTORE_FILE=${{ runner.temp }}/debug.jks" >> $GITHUB_ENV
-            echo "KEYSTORE_PASSWORD=android" >> $GITHUB_ENV
-            echo "KEY_ALIAS=androiddebugkey" >> $GITHUB_ENV
-            echo "KEY_PASSWORD=android" >> $GITHUB_ENV
+            echo "::error::KEYSTORE_BASE64 secret fehlt – ohne festen Release-Keystore wären APK-Updates nicht installierbar."
+            exit 1
           fi
 
       - name: Run Unit Tests

@@ -43,6 +43,7 @@ class MainActivity : ComponentActivity() {
             val products by vm.products.collectAsStateWithLifecycle()
             val frequentProducts by vm.frequentProducts.collectAsStateWithLifecycle()
             val duplicatePrompt by vm.duplicatePrompt.collectAsStateWithLifecycle()
+            val showCategoryHeaders by vm.showCategoryHeaders.collectAsStateWithLifecycle()
 
             var currentRoute by remember { mutableStateOf(ScreenRoute.SHOPPING_LIST) }
             var showListsSheet by remember { mutableStateOf(false) }
@@ -68,7 +69,9 @@ class MainActivity : ComponentActivity() {
                             onQuickAddFrequent = { vm.addProductToList(it, null, null, "") },
                             onOpenCategories = { currentRoute = ScreenRoute.CATEGORIES },
                             onOpenCatalog = { currentRoute = ScreenRoute.CATALOG },
-                            onOpenThemeDialog = { showThemeDialog = true }
+                            onOpenThemeDialog = { showThemeDialog = true },
+                            showCategoryHeaders = showCategoryHeaders,
+                            onToggleCategoryHeaders = { vm.toggleCategoryHeaders() }
                         )
                     }
 

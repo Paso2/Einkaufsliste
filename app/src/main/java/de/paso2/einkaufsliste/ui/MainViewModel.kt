@@ -59,6 +59,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val themeMode: StateFlow<ThemeMode> = prefs.themeMode
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), ThemeMode.SYSTEM)
 
+    val showCategoryHeaders: StateFlow<Boolean> = prefs.showCategoryHeaders
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), true)
+
+    fun toggleCategoryHeaders() {
+        viewModelScope.launch { prefs.setShowCategoryHeaders(!showCategoryHeaders.value) }
+    }
+
     val lists: StateFlow<List<ShoppingListEntity>> = listDao.observeAll()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 

@@ -3,6 +3,7 @@ package de.paso2.einkaufsliste.data
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -21,6 +22,7 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 class AppPreferences(private val context: Context) {
     private val themeKey = stringPreferencesKey("theme_mode")
     private val activeListIdKey = longPreferencesKey("active_list_id")
+    private val showCategoryHeadersKey = booleanPreferencesKey("show_category_headers")
 
     val themeMode: Flow<ThemeMode> = context.dataStore.data.map { prefs ->
         val raw = prefs[themeKey]
@@ -29,6 +31,16 @@ class AppPreferences(private val context: Context) {
 
     val activeListId: Flow<Long?> = context.dataStore.data.map { prefs ->
         prefs[activeListIdKey]
+    }
+
+    val showCategoryHeaders: Flow<Boolean> = context.dataStore.data.map { prefs ->
+        prefs[showCategoryHeadersKey] ?: true
+    }
+
+    suspend fun setShowCategoryHeaders(show: Boolean) {
+        context.dataStore.edit { prefs ->
+            prefs[showCategoryHeadersKey] = show
+        }
     }
 
     suspend fun setThemeMode(mode: ThemeMode) {

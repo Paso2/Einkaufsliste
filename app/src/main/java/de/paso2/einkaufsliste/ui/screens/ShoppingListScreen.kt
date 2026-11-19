@@ -1,8 +1,9 @@
 package de.paso2.einkaufsliste.ui.screens
 
-import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.border
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -22,6 +24,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ViewList
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -29,7 +32,6 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.outlined.Category
 import androidx.compose.material.icons.outlined.DarkMode
 import androidx.compose.material.icons.outlined.DeleteSweep
-import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.Inventory2
 import androidx.compose.material.icons.outlined.ShoppingBag
 import androidx.compose.material3.AssistChip
@@ -56,9 +58,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import de.paso2.einkaufsliste.data.ProductEntity
 import de.paso2.einkaufsliste.data.ShoppingListItemEntity
@@ -78,7 +86,9 @@ fun ShoppingListScreen(
     onQuickAddFrequent: (ProductEntity) -> Unit,
     onOpenCategories: () -> Unit,
     onOpenCatalog: () -> Unit,
-    onOpenThemeDialog: () -> Unit
+    onOpenThemeDialog: () -> Unit,
+    showCategoryHeaders: Boolean,
+    onToggleCategoryHeaders: () -> Unit
 ) {
     var menuExpanded by remember { mutableStateOf(false) }
 
@@ -129,6 +139,25 @@ fun ShoppingListScreen(
                     }
                 },
                 actions = {
+                    IconButton(onClick = onToggleCategoryHeaders) {
+                        Icon(
+                            imageVector = if (showCategoryHeaders) {
+                                Icons.Outlined.Category
+                            } else {
+                                Icons.AutoMirrored.Outlined.ViewList
+                            },
+                            contentDescription = if (showCategoryHeaders) {
+                                "Kategorien ausblenden"
+                            } else {
+                                "Kategorien einblenden"
+                            },
+                            tint = if (showCategoryHeaders) {
+                                MaterialTheme.colorScheme.primary
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            }
+                        )
+                    }
                     Box {
                         IconButton(onClick = { menuExpanded = true }) {
                             Icon(Icons.Default.MoreVert, contentDescription = "Menü")
@@ -137,6 +166,25 @@ fun ShoppingListScreen(
                             expanded = menuExpanded,
                             onDismissRequest = { menuExpanded = false }
                         ) {
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        if (showCategoryHeaders) "Kategorien ausblenden"
+                                        else "Kategorien einblenden"
+                                    )
+                                },
+                                leadingIcon = {
+                                    Icon(
+                                        if (showCategoryHeaders) Icons.AutoMirrored.Outlined.ViewList
+                                        else Icons.Outlined.Category,
+                                        null
+                                    )
+                                },
+                                onClick = {
+                                    menuExpanded = false
+                                    onToggleCategoryHeaders()
+                                }
+                            )
                             DropdownMenuItem(
                                 text = { Text("Kategorien & Reihenfolge") },
                                 leadingIcon = { Icon(Icons.Outlined.Category, null) },
@@ -233,21 +281,29 @@ fun ShoppingListScreen(
                 }
             }
         } else {
+            val haptics = LocalHapticFeedback.current
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding),
-                contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 96.dp),
-                verticalArrangement = Arrangement.spacedBy(6.dp)
+                contentPadding = PaddingValues(start = 12.dp, end = 12.dp, top = 4.dp, bottom = 96.dp)
             ) {
-                uiState.openGroups.forEach { group ->
-                    item(key = "header_${group.categoryId ?: -1L}") {
-                        Text(
-                            text = group.categoryName.uppercase(),
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.padding(top = 12.dp, bottom = 4.dp, start = 4.dp)
-                        )
+                uiState.openGroups.forEachIndexed { groupIndex, group ->
+                    if (showCategoryHeaders) {
+                        item(key = "header_${group.categoryId ?: -1L}") {
+                            Text(
+                                text = group.categoryName.uppercase(),
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier
+                                    .animateItem()
+                                    .padding(
+                                        top = if (groupIndex == 0) 4.dp else 14.dp,
+                                        bottom = 2.dp,
+                                        start = 8.dp
+                                    )
+                            )
+                        }
                     }
                     items(
                         items = group.items,
@@ -256,7 +312,10 @@ fun ShoppingListScreen(
                         ShoppingItemRow(
                             item = item,
                             onToggle = { onToggleItem(item) },
-                            onEdit = { onEditItem(item) },
+                            onEdit = {
+                                haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+                                onEditItem(item)
+                            },
                             modifier = Modifier.animateItem()
                         )
                     }
@@ -264,12 +323,11 @@ fun ShoppingListScreen(
 
                 if (uiState.checkedItems.isNotEmpty()) {
                     item(key = "checked_divider") {
-                        Spacer(modifier = Modifier.height(12.dp))
-                        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
                         Row(
                             modifier = Modifier
+                                .animateItem()
                                 .fillMaxWidth()
-                                .padding(top = 8.dp, bottom = 4.dp, start = 4.dp),
+                                .padding(top = 16.dp, start = 8.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -299,16 +357,36 @@ fun ShoppingListScreen(
                         ShoppingItemRow(
                             item = item,
                             onToggle = { onToggleItem(item) },
-                            onEdit = { onEditItem(item) },
+                            onEdit = {
+                                haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+                                onEditItem(item)
+                            },
                             modifier = Modifier.animateItem()
                         )
                     }
+                }
+
+                item(key = "usage_hint") {
+                    Text(
+                        text = "Tippen = gekauft  ·  Lange drücken = bearbeiten",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 20.dp),
+                        textAlign = TextAlign.Center
+                    )
                 }
             }
         }
     }
 }
 
+/**
+ * Compact single-line row: check circle · name · note (truncated) · quantity.
+ * Tap toggles "bought", long press opens the edit dialog.
+ */
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun ShoppingItemRow(
     item: ShoppingListItemEntity,
@@ -317,35 +395,33 @@ private fun ShoppingItemRow(
     modifier: Modifier = Modifier
 ) {
     val qtyText = QuantityMerger.formatQuantity(item.quantity, item.unit)
+    val contentAlpha = if (item.isChecked) 0.5f else 1f
 
-    Surface(
-        modifier = modifier
-            .fillMaxWidth()
-            .animateContentSize()
-            .alpha(if (item.isChecked) 0.55f else 1f),
-        shape = RoundedCornerShape(14.dp),
-        color = if (item.isChecked) {
-            MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f)
-        } else {
-            MaterialTheme.colorScheme.surface
-        },
-        tonalElevation = if (item.isChecked) 0.dp else 1.dp
-    ) {
+    Column(modifier = modifier.fillMaxWidth()) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable(onClick = onToggle)
-                .padding(start = 14.dp, end = 6.dp, top = 12.dp, bottom = 12.dp),
+                .heightIn(min = 44.dp)
+                .clip(RoundedCornerShape(8.dp))
+                .combinedClickable(onClick = onToggle, onLongClick = onEdit)
+                .padding(horizontal = 8.dp, vertical = 6.dp)
+                .alpha(contentAlpha),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Minimalist circular check indicator
             Box(
                 modifier = Modifier
-                    .size(24.dp)
+                    .size(20.dp)
                     .clip(CircleShape)
-                    .background(
-                        if (item.isChecked) MaterialTheme.colorScheme.primary
-                        else MaterialTheme.colorScheme.surfaceVariant
+                    .then(
+                        if (item.isChecked) {
+                            Modifier.background(MaterialTheme.colorScheme.primary)
+                        } else {
+                            Modifier.border(
+                                width = 1.5.dp,
+                                color = MaterialTheme.colorScheme.outline,
+                                shape = CircleShape
+                            )
+                        }
                     ),
                 contentAlignment = Alignment.Center
             ) {
@@ -354,65 +430,61 @@ private fun ShoppingItemRow(
                         imageVector = Icons.Default.Check,
                         contentDescription = "Gekauft",
                         tint = MaterialTheme.colorScheme.onPrimary,
-                        modifier = Modifier.size(16.dp)
+                        modifier = Modifier.size(14.dp)
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.width(14.dp))
+            Spacer(modifier = Modifier.width(12.dp))
 
-            Column(modifier = Modifier.weight(1f)) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Text(
-                        text = item.productName,
-                        style = MaterialTheme.typography.bodyLarge.copy(
+            val noteColor = MaterialTheme.colorScheme.onSurfaceVariant
+            val noteFontSize = MaterialTheme.typography.bodySmall.fontSize
+            val titleDecoration = if (item.isChecked) TextDecoration.LineThrough else TextDecoration.None
+
+            Text(
+                text = buildAnnotatedString {
+                    withStyle(
+                        SpanStyle(
                             fontWeight = FontWeight.Medium,
-                            textDecoration = if (item.isChecked) TextDecoration.LineThrough else TextDecoration.None
-                        ),
-                        modifier = Modifier.weight(1f, fill = false),
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                    if (qtyText.isNotEmpty()) {
-                        Surface(
-                            shape = RoundedCornerShape(8.dp),
-                            color = MaterialTheme.colorScheme.primaryContainer
-                        ) {
-                            Text(
-                                text = qtyText,
-                                style = MaterialTheme.typography.labelMedium,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp)
+                            textDecoration = titleDecoration
+                        )
+                    ) {
+                        append(item.productName)
+                    }
+                    if (item.note.isNotBlank()) {
+                        withStyle(
+                            SpanStyle(
+                                color = noteColor,
+                                fontSize = noteFontSize,
+                                fontWeight = FontWeight.Normal,
+                                textDecoration = titleDecoration
                             )
+                        ) {
+                            append("  ·  ")
+                            append(item.note)
                         }
                     }
-                }
-                if (item.note.isNotBlank()) {
-                    Spacer(modifier = Modifier.height(2.dp))
-                    Text(
-                        text = item.note,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                }
-            }
+                },
+                style = MaterialTheme.typography.bodyLarge,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.weight(1f)
+            )
 
-            IconButton(
-                onClick = onEdit,
-                modifier = Modifier.size(36.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Outlined.Edit,
-                    contentDescription = "Bearbeiten",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(18.dp)
+            if (qtyText.isNotEmpty()) {
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = qtyText,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                    maxLines = 1
                 )
             }
         }
+        HorizontalDivider(
+            modifier = Modifier.padding(start = 40.dp),
+            thickness = 0.5.dp,
+            color = MaterialTheme.colorScheme.outlineVariant
+        )
     }
 }
